@@ -6,3 +6,6 @@ def home(request):
 
 def contact(request):
     return HttpResponse("<h1 style='color: red'>This is Contact Page</h1>")
+
+def show_task(request):
+    return HttpResponse("<h1 style='color: blue'>This is our Task Page</h1>")
