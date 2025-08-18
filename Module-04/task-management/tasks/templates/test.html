@@ -15,5 +15,19 @@
 
     <p>{{names}}</p>
     <p>{{age}}</p>
+
+    <h3>All Name</h3>
+    {% for name in names %}
+        <p>{{name}}</p>
+    {% endfor %}
+
+    <h3>Condition Name</h3>
+    {% for name in names %}
+        {% if not name == 'John' %}
+            <p>{{name}}</p>
+        {% endif %}
+    {% endfor %}
+
+    <p>Total names: {{count}}</p>
 </body>
 </html>
