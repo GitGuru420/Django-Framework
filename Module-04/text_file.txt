@@ -1,0 +1,9 @@
+Module-04
+
+Django Templates & Static Files
+
+Tailwind CSS Installation Process
+	- npm install
+	- npx tailwindcss init
+	- npm run build:tailwind
+	- npm run watch:tailwind
