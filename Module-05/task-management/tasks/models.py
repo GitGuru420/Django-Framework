@@ -8,6 +8,13 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    # many to one
+    project = models.ForeignKey(
+        'Project', 
+        on_delete=models.CASCADE,
+        default=1
+    )
     
 # one to one
 class TaskDetail(models.Model):
@@ -25,3 +32,8 @@ class TaskDetail(models.Model):
         Task, 
         on_delete=models.CASCADE
     )
+    
+# many to one
+class Project(models.Model):
+    name = models.CharField(max_length=100)
+    start_date = models.DateField()
