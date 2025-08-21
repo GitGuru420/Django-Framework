@@ -8,3 +8,20 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+# one to one
+class TaskDetail(models.Model):
+    HIGH = 'H'
+    MEDIUM = 'M'
+    LOW = 'L'
+    PRIORITY_OPTIONS = (
+        (HIGH, 'High'),
+        (MEDIUM, 'Medium'),
+        (LOW, 'Low')
+    )
+    assigned_to = models.CharField(max_length=100)
+    priority = models.CharField(max_length=1, choices=PRIORITY_OPTIONS, default=LOW)
+    task = models.OneToOneField(
+        Task, 
+        on_delete=models.CASCADE
+    )
