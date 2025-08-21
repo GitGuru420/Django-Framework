@@ -1,0 +1,11 @@
+Module-05
+
+Database Setup, Models and Relationship
+
+	- Configuring PostgreSQL in Django
+	- Define Model & Fields & Relationship
+	- Define One to One
+	- Django Shell
+	- Define Many to One
+	- Define Many to Many
+	- Reverse Relationship & related_name
