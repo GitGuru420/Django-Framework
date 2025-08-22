@@ -1,0 +1,11 @@
+Module-06
+
+Forms & Model Form
+
+	- GET VS POST Method in Django
+	- Dynamically Populate Relational Fields in Django Forms
+	- Create Task into Database Using Form Data
+	- Django Model Form
+	- Custom Widget in Django Model
+	- Use From Mixins for Clean Code
+	- Understanding MRO and Bug Fixing
