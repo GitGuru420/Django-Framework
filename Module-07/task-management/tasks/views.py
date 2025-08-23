@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from tasks.forms import TaskForm, TaskModelForm
 from tasks.models import Employee, Task, TaskDetail
 from datetime import date
+from django.db.models import Q
 
 # app folder templates
 def manager_dashboard(request):
@@ -44,12 +45,14 @@ def create_task(request):
 
 
 def view_task(request):
-    # show the that are pending
-    # tasks = Task.objects.filter(status="PENDING")
+    """ show the task that contain word 'animal' """
+    # tasks = Task.objects.filter(title__icontains="animal")
     
-    # show the task whcih due date is today
-    # tasks = Task.objects.filter(due_date=date.today())
+    """ show the task that contain word 'c' and status pending """
+    # tasks = Task.objects.filter(title__icontains="c", status="PENDING")
     
-    """ show the task whose priority is not low """
-    tasks = TaskDetail.objects.exclude(priority="L")
+    """ show the task that contain word in_progress or status pending """
+    # tasks = Task.objects.filter(Q(status="PENDING") | Q(status="IN_PROGRESS"))
+    
+    tasks = Task.objects.filter(status="Hello").exists()
     return render(request, "show_task.html", {"tasks": tasks})
