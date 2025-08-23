@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from tasks.forms import TaskForm, TaskModelForm
-from tasks.models import Employee, Task
+from tasks.models import Employee, Task, TaskDetail
+from datetime import date
 
 # app folder templates
 def manager_dashboard(request):
@@ -43,14 +44,12 @@ def create_task(request):
 
 
 def view_task(request):
-    # retrive all data from task model
-    tasks = Task.objects.all()
+    # show the that are pending
+    # tasks = Task.objects.filter(status="PENDING")
     
-    # retrive a specific task
-    # task_3 = Task.objects.get(id=2)
-    # task_3 = Task.objects.get(id=1)
-    task_3 = Task.objects.get(id=0)
+    # show the task whcih due date is today
+    # tasks = Task.objects.filter(due_date=date.today())
     
-    # fetch the first task
-    first_task = Task.objects.first()
-    return render(request, "show_task.html", {"tasks": tasks, "task_3": task_3, "first_task": first_task})
+    """ show the task whose priority is not low """
+    tasks = TaskDetail.objects.exclude(priority="L")
+    return render(request, "show_task.html", {"tasks": tasks})
