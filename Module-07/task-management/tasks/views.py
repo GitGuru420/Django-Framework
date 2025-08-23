@@ -47,7 +47,9 @@ def view_task(request):
     tasks = Task.objects.all()
     
     # retrive a specific task
-    task_3 = Task.objects.get(id=2)
+    # task_3 = Task.objects.get(id=2)
+    # task_3 = Task.objects.get(id=1)
+    task_3 = Task.objects.get(id=0)
     
     # fetch the first task
     first_task = Task.objects.first()
