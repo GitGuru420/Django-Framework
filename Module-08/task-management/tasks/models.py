@@ -40,7 +40,7 @@ class TaskDetail(models.Model):
         (MEDIUM, 'Medium'),
         (LOW, 'Low')
     )
-    assigned_to = models.CharField(max_length=100)
+    # assigned_to = models.CharField(max_length=100)
     priority = models.CharField(max_length=1, choices=PRIORITY_OPTIONS, default=LOW)
     task = models.OneToOneField(
         Task, 
