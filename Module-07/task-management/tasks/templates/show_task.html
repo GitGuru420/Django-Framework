@@ -7,14 +7,16 @@
 </head>
 <body>
     <div>
-        <ul>
-            {% for task in tasks %}
+        <ol>
+            {% for project in tasks %}
                 <li>
-                    <p>{{task.title}}</p>
-                    <span>{{task.project.name}}</span>
+                    <p>{{project.name}}</p>
+                    {% for task in project.task_set.all %}
+                        <p>{{task.title}}</spapn>
+                    {% endfor %}
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     </div>
 </body>
 </html>

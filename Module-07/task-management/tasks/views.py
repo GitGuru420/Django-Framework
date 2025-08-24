@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from tasks.forms import TaskForm, TaskModelForm
-from tasks.models import Employee, Task, TaskDetail
+from tasks.models import Employee, Task, TaskDetail, Project
 from datetime import date
 from django.db.models import Q
 
@@ -46,6 +46,8 @@ def create_task(request):
 
 def view_task(request):
     """select related (foreignkey, onetoonefieild)"""
-    tasks = Task.objects.select_related('project').all()
+    # tasks = Task.objects.select_related('project').all()
     
+    """prefetch related(reverse foreign key, many to many)"""
+    tasks = Project.objects.prefetch_related('task_set').all()
     return render(request, "show_task.html", {"tasks": tasks})
