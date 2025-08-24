@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% comment %} static css {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <p class="red-bg">Static CSS</p>
+    <img src="{% static "images/me.jpg" %}" alt="" class="img-size">
+
+    <p>{{names}}</p>
+    <p>{{age}}</p>
+
+    <h3>All Name</h3>
+    {% for name in names %}
+        <p>{{name}}</p>
+    {% endfor %}
+
+    <h3>Condition Name</h3>
+    {% for name in names %}
+        {% if not name == 'John' %}
+            <p>{{name}}</p>
+        {% endif %}
+    {% endfor %}
+
+    <p>Total names: {{count}}</p>
+</body>
+</html>
