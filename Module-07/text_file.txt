@@ -1,0 +1,11 @@
+Module-07 
+
+Django ORM
+
+	- Setup Django Debug Toolbar
+	- Reset Database in Django
+	- Retrieving Data
+	- Filtering Data
+	- Complex Lookups Using Q Objects
+	- Related Data Queries
+	- Aggregations
