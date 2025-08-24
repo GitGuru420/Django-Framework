@@ -46,8 +46,6 @@ def create_task(request):
 
 def view_task(request):
     """select related (foreignkey, onetoonefieild)"""
-    # tasks = Task.objects.all()
-    # tasks = Task.objects.select_related('details').all()
-    tasks = TaskDetail.objects.select_related('task').all()
+    tasks = Task.objects.select_related('project').all()
     
     return render(request, "show_task.html", {"tasks": tasks})

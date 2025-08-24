@@ -10,10 +10,8 @@
         <ul>
             {% for task in tasks %}
                 <li>
-                    {% comment %} <p>{{task.title}}</p>
-                    <span>{{task.details.priority}}</span> {% endcomment %}
-                    <p>{{task.task.title}}</p>
-                    <span>{{task.priority}}</span>
+                    <p>{{task.title}}</p>
+                    <span>{{task.project.name}}</span>
                 </li>
             {% endfor %}
         </ul>
