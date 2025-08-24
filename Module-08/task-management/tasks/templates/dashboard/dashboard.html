@@ -45,6 +45,7 @@
             {% comment %} stats grid {% endcomment %}
             <div class="grid grid-cols-4 gap-6 mb-8">
                 {% comment %} total task {% endcomment %}
+                <a href="{% url 'manager-dashboard' %}">
                 <div class="bg-white rounded-xl p-6 shadow-sm">
                     <h3 class="text-sm font-medium text-gray-500 mb-4">TOTAL TASK</h3>
                     <div class="flex items-center justify-between">
@@ -61,8 +62,10 @@
                         </div>
                     </div>
                 </div>
+                </a>
 
                 {% comment %} completed task {% endcomment %}
+                <a href="{% url 'manager-dashboard' %}?type=completed">
                 <div class="bg-white rounded-xl p-6 shadow-sm">
                     <h3 class="text-sm font-medium text-gray-500 mb-4">COMPLETED TASK</h3>
                     <div class="flex items-center justify-between">
@@ -79,8 +82,10 @@
                         </div>
                     </div>
                 </div>
+                </a>
 
                 {% comment %} task in progress {% endcomment %}
+                 <a href="{% url 'manager-dashboard' %}?type=in-progress">
                 <div class="bg-white rounded-xl p-6 shadow-sm">
                     <h3 class="text-sm font-medium text-gray-500 mb-4">TASK IN PROGRESS</h3>
                     <div class="flex items-center justify-between">
@@ -97,8 +102,10 @@
                         </div>
                     </div>
                 </div>
+                </a>
 
                 {% comment %} todos {% endcomment %}
+                 <a href="{% url 'manager-dashboard' %}?type=pending">
                 <div class="bg-white rounded-xl p-6 shadow-sm">
                     <h3 class="text-sm font-medium text-gray-500 mb-4">TODOS</h3>
                     <div class="flex items-center justify-between">
@@ -115,6 +122,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
 
             {% comment %} inheritance {% endcomment %}

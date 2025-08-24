@@ -7,20 +7,7 @@ from django.db.models import Q, Count, Max, Min, Avg
 
 # app folder templates
 def manager_dashboard(request):
-    tasks = Task.objects.select_related('details').prefetch_related('assigned_to').all()
-    
-    # getting task count
-    # total_task = tasks.count()
-    # completed_task = Task.objects.filter(status="COMPLETED").count()
-    # in_progress_task = Task.objects.filter(status="IN_PROGRESS").count()
-    # pending_task = Task.objects.filter(status="PENDING").count()
-
-    # count = {
-    #     "total_task": total_task,
-    #     "completed_task": completed_task,
-    #     "in_progress_task": in_progress_task,
-    #     "pending_task": pending_task
-    # }
+    type = request.GET.get('type', 'all')
     
     counts = Task.objects.aggregate(
         total = Count('id'),
@@ -28,6 +15,18 @@ def manager_dashboard(request):
         in_progress = Count('id', filter=Q(status="IN_PROGRESS")),
         pending = Count('id', filter=Q(status="PENDING"))
     )
+    
+    # retriving task tada
+    base_query = Task.objects.select_related('details').prefetch_related('assigned_to')
+    
+    if type == 'completed':
+        tasks = base_query.filter(status='COMPLETED')
+    elif type == 'in-progress':
+        tasks = base_query.filter(status='IN_PROGRESS')
+    elif type == 'pending':
+        tasks = base_query.filter(status='PENDING')
+    elif type == 'all':
+        tasks = base_query.all()
     
     context = {
         "tasks": tasks,
