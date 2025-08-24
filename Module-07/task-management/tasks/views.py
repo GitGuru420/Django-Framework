@@ -45,14 +45,9 @@ def create_task(request):
 
 
 def view_task(request):
-    """ show the task that contain word 'animal' """
-    # tasks = Task.objects.filter(title__icontains="animal")
+    """select related (foreignkey, onetoonefieild)"""
+    # tasks = Task.objects.all()
+    # tasks = Task.objects.select_related('details').all()
+    tasks = TaskDetail.objects.select_related('task').all()
     
-    """ show the task that contain word 'c' and status pending """
-    # tasks = Task.objects.filter(title__icontains="c", status="PENDING")
-    
-    """ show the task that contain word in_progress or status pending """
-    # tasks = Task.objects.filter(Q(status="PENDING") | Q(status="IN_PROGRESS"))
-    
-    tasks = Task.objects.filter(status="Hello").exists()
     return render(request, "show_task.html", {"tasks": tasks})
