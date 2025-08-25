@@ -20,6 +20,10 @@
                 <div>
                     <span>{{task.title}}</span>
                     <a href='{% url "update-task" task.id %}' class="px-2 py-1 bg-green-400">Edit</a>
+                    <form action='{% url "delete-task" task.id %}' method="POST">
+                        {% csrf_token %}
+                        <button type='submit' class="px-2 py-1 bg-rose-400">Delete</button>
+                    </form>
                 </div>
             </div>
             <div>
