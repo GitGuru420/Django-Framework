@@ -1,0 +1,10 @@
+*** Module-01 : Introduction to Django & Project Setup ***
+
+Topic:
+    - What is django
+    - Create virtual environment and initialize a project
+    - Understand django's architecture_projects, MVT structure
+    - Set up the Task Management System project
+    - Define urls and create functions based views
+    - Working with app urls
+    - Generate requirements.txt file
