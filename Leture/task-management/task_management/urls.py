@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from tasks.views import home, contact
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('home/', home),
     # path('', home),
     path('contact/', contact),
+    path('tasks/', include('tasks.urls')),
 ]
